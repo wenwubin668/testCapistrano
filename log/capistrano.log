@@ -1,0 +1,80 @@
+# Logfile created on 2019-06-22 16:06:43 +0800 by logger.rb/56438
+  INFO ---------------------------------------------------------------------------
+  INFO START 2019-06-22 16:06:43 +0800 cap production deploy
+  INFO ---------------------------------------------------------------------------
+  INFO [1a15f2e7] Running /usr/bin/env mkdir -p /tmp as root@39.107.229.136
+ DEBUG [1a15f2e7] Command: /usr/bin/env mkdir -p /tmp
+  INFO [ff8a5860] Finished in 32.524 seconds with exit status 0 (successful).
+ DEBUG Uploading /tmp/git-ssh-testCapistrano-production-edz.sh 0.0%
+  INFO Uploading /tmp/git-ssh-testCapistrano-production-edz.sh 100.0%
+  INFO [430be42b] Running /usr/bin/env chmod 700 /tmp/git-ssh-testCapistrano-production-edz.sh as root@39.107.229.136
+ DEBUG [430be42b] Command: /usr/bin/env chmod 700 /tmp/git-ssh-testCapistrano-production-edz.sh
+  INFO [87162a24] Finished in 0.280 seconds with exit status 0 (successful).
+  INFO [e42f23bc] Running /usr/bin/env git ls-remote git@github.com:wenwubin668/testCapistrano.git HEAD as root@39.107.229.136
+ DEBUG [e42f23bc] Command: ( export GIT_ASKPASS="/bin/echo" GIT_SSH="/tmp/git-ssh-testCapistrano-production-edz.sh" ; /usr/bin/env git ls-remote git@github.com:wenwubin668/testCapistrano.git HEAD )
+ DEBUG [ffe10cf7] 	11eef10606dcd5ab26826c0cdd1888fc995d9d3d	HEAD
+  INFO [ffe10cf7] Finished in 5.092 seconds with exit status 0 (successful).
+  INFO [b92d0e22] Running /usr/bin/env mkdir -p /data/testCapistrano/shared /data/testCapistrano/releases as root@39.107.229.136
+ DEBUG [b92d0e22] Command: /usr/bin/env mkdir -p /data/testCapistrano/shared /data/testCapistrano/releases
+  INFO [2849546f] Finished in 0.266 seconds with exit status 0 (successful).
+ DEBUG [3ffeaf1f] Running [ -f /data/testCapistrano/current/REVISION ] as root@39.107.229.136
+ DEBUG [3ffeaf1f] Command: [ -f /data/testCapistrano/current/REVISION ]
+ DEBUG [a42a8759] Finished in 0.254 seconds with exit status 1 (failed).
+ DEBUG [f37a3253] Running [ -f /data/testCapistrano/repo/HEAD ] as root@39.107.229.136
+ DEBUG [f37a3253] Command: [ -f /data/testCapistrano/repo/HEAD ]
+ DEBUG [09a3dddc] Finished in 0.266 seconds with exit status 1 (failed).
+ DEBUG [6130c803] Running if test ! -d /data/testCapistrano; then echo "Directory does not exist '/data/testCapistrano'" 1>&2; false; fi as root@39.107.229.136
+ DEBUG [6130c803] Command: if test ! -d /data/testCapistrano; then echo "Directory does not exist '/data/testCapistrano'" 1>&2; false; fi
+ DEBUG [acd189ef] Finished in 0.266 seconds with exit status 0 (successful).
+  INFO [0580d784] Running /usr/bin/env git clone --mirror git@github.com:wenwubin668/testCapistrano.git /data/testCapistrano/repo as root@39.107.229.136
+ DEBUG [0580d784] Command: cd /data/testCapistrano && ( export GIT_ASKPASS="/bin/echo" GIT_SSH="/tmp/git-ssh-testCapistrano-production-edz.sh" ; /usr/bin/env git clone --mirror git@github.com:wenwubin668/testCapistrano.git /data/testCapistrano/repo )
+ DEBUG [2052ee08] 	Cloning into bare repository '/data/testCapistrano/repo'...
+  INFO [2052ee08] Finished in 4.678 seconds with exit status 0 (successful).
+ DEBUG [71fce9ad] Running if test ! -d /data/testCapistrano/repo; then echo "Directory does not exist '/data/testCapistrano/repo'" 1>&2; false; fi as root@39.107.229.136
+ DEBUG [71fce9ad] Command: if test ! -d /data/testCapistrano/repo; then echo "Directory does not exist '/data/testCapistrano/repo'" 1>&2; false; fi
+ DEBUG [5fd86e00] Finished in 0.416 seconds with exit status 0 (successful).
+  INFO [6d04c7a2] Running /usr/bin/env git remote set-url origin git@github.com:wenwubin668/testCapistrano.git as root@39.107.229.136
+ DEBUG [6d04c7a2] Command: cd /data/testCapistrano/repo && ( export GIT_ASKPASS="/bin/echo" GIT_SSH="/tmp/git-ssh-testCapistrano-production-edz.sh" ; /usr/bin/env git remote set-url origin git@github.com:wenwubin668/testCapistrano.git )
+  INFO [bb737fca] Finished in 0.275 seconds with exit status 0 (successful).
+  INFO [2b982f87] Running /usr/bin/env git remote update --prune as root@39.107.229.136
+ DEBUG [2b982f87] Command: cd /data/testCapistrano/repo && ( export GIT_ASKPASS="/bin/echo" GIT_SSH="/tmp/git-ssh-testCapistrano-production-edz.sh" ; /usr/bin/env git remote update --prune )
+ DEBUG [9f165e2a] 	Fetching origin
+  INFO [9f165e2a] Finished in 5.151 seconds with exit status 0 (successful).
+ DEBUG [0a05d42d] Running if test ! -d /data/testCapistrano/repo; then echo "Directory does not exist '/data/testCapistrano/repo'" 1>&2; false; fi as root@39.107.229.136
+ DEBUG [0a05d42d] Command: if test ! -d /data/testCapistrano/repo; then echo "Directory does not exist '/data/testCapistrano/repo'" 1>&2; false; fi
+ DEBUG [c3625c2d] Finished in 0.295 seconds with exit status 0 (successful).
+  INFO [ea5e054d] Running /usr/bin/env mkdir -p /data/testCapistrano/releases/20190622080722 as root@39.107.229.136
+ DEBUG [ea5e054d] Command: cd /data/testCapistrano/repo && ( export GIT_ASKPASS="/bin/echo" GIT_SSH="/tmp/git-ssh-testCapistrano-production-edz.sh" ; /usr/bin/env mkdir -p /data/testCapistrano/releases/20190622080722 )
+  INFO [60ab5c42] Finished in 0.265 seconds with exit status 0 (successful).
+  INFO [91ad53b6] Running /usr/bin/env git archive master | /usr/bin/env tar -x -f - -C /data/testCapistrano/releases/20190622080722 as root@39.107.229.136
+ DEBUG [91ad53b6] Command: cd /data/testCapistrano/repo && ( export GIT_ASKPASS="/bin/echo" GIT_SSH="/tmp/git-ssh-testCapistrano-production-edz.sh" ; /usr/bin/env git archive master | /usr/bin/env tar -x -f - -C /data/testCapistrano/releases/20190622080722 )
+  INFO [894b4d2a] Finished in 0.272 seconds with exit status 0 (successful).
+ DEBUG [639ea8d5] Running if test ! -d /data/testCapistrano/repo; then echo "Directory does not exist '/data/testCapistrano/repo'" 1>&2; false; fi as root@39.107.229.136
+ DEBUG [639ea8d5] Command: if test ! -d /data/testCapistrano/repo; then echo "Directory does not exist '/data/testCapistrano/repo'" 1>&2; false; fi
+ DEBUG [9dd522ea] Finished in 0.262 seconds with exit status 0 (successful).
+ DEBUG [fdac9bfd] Running /usr/bin/env git rev-list --max-count=1 master as root@39.107.229.136
+ DEBUG [fdac9bfd] Command: cd /data/testCapistrano/repo && ( export GIT_ASKPASS="/bin/echo" GIT_SSH="/tmp/git-ssh-testCapistrano-production-edz.sh" ; /usr/bin/env git rev-list --max-count=1 master )
+ DEBUG [1eda82d9] 	11eef10606dcd5ab26826c0cdd1888fc995d9d3d
+ DEBUG [1eda82d9] Finished in 0.272 seconds with exit status 0 (successful).
+ DEBUG [4b6a75c2] Running if test ! -d /data/testCapistrano/releases/20190622080722; then echo "Directory does not exist '/data/testCapistrano/releases/20190622080722'" 1>&2; false; fi as root@39.107.229.136
+ DEBUG [4b6a75c2] Command: if test ! -d /data/testCapistrano/releases/20190622080722; then echo "Directory does not exist '/data/testCapistrano/releases/20190622080722'" 1>&2; false; fi
+ DEBUG [364f2411] Finished in 0.271 seconds with exit status 0 (successful).
+  INFO [3cb9cafc] Running /usr/bin/env echo "11eef10606dcd5ab26826c0cdd1888fc995d9d3d" > REVISION as root@39.107.229.136
+ DEBUG [3cb9cafc] Command: cd /data/testCapistrano/releases/20190622080722 && /usr/bin/env echo "11eef10606dcd5ab26826c0cdd1888fc995d9d3d" > REVISION
+  INFO [e86c65ba] Finished in 0.268 seconds with exit status 0 (successful).
+  INFO [a97c7e62] Running /usr/bin/env ln -s /data/testCapistrano/releases/20190622080722 /data/testCapistrano/releases/current as root@39.107.229.136
+ DEBUG [a97c7e62] Command: /usr/bin/env ln -s /data/testCapistrano/releases/20190622080722 /data/testCapistrano/releases/current
+  INFO [9db100a1] Finished in 0.264 seconds with exit status 0 (successful).
+  INFO [6c9bc43f] Running /usr/bin/env mv /data/testCapistrano/releases/current /data/testCapistrano as root@39.107.229.136
+ DEBUG [6c9bc43f] Command: /usr/bin/env mv /data/testCapistrano/releases/current /data/testCapistrano
+  INFO [af50363d] Finished in 0.271 seconds with exit status 0 (successful).
+ DEBUG [d15715b5] Running /usr/bin/env ls -x /data/testCapistrano/releases as root@39.107.229.136
+ DEBUG [d15715b5] Command: /usr/bin/env ls -x /data/testCapistrano/releases
+ DEBUG [bce3c5fe] 	20190622080722
+ DEBUG [bce3c5fe] Finished in 0.277 seconds with exit status 0 (successful).
+ DEBUG [f4108de4] Running if test ! -d /data/testCapistrano/releases; then echo "Directory does not exist '/data/testCapistrano/releases'" 1>&2; false; fi as root@39.107.229.136
+ DEBUG [f4108de4] Command: if test ! -d /data/testCapistrano/releases; then echo "Directory does not exist '/data/testCapistrano/releases'" 1>&2; false; fi
+ DEBUG [f60a1bad] Finished in 0.268 seconds with exit status 0 (successful).
+  INFO [05d52ce3] Running /usr/bin/env echo "Branch master (at 11eef10606dcd5ab26826c0cdd1888fc995d9d3d) deployed as release 20190622080722 by edz" >> /data/testCapistrano/revisions.log as root@39.107.229.136
+ DEBUG [05d52ce3] Command: cd /data/testCapistrano/releases && /usr/bin/env echo "Branch master (at 11eef10606dcd5ab26826c0cdd1888fc995d9d3d) deployed as release 20190622080722 by edz" >> /data/testCapistrano/revisions.log
+  INFO [b6cd6ee7] Finished in 0.253 seconds with exit status 0 (successful).
